@@ -18,11 +18,11 @@ public enum Type: Swift.String {
   case Null = "null"
 }
 
-extension String {
-  func stringByRemovingPrefix(_ prefix:String) -> String? {
+extension StringProtocol {
+  func stringByRemovingPrefix(_ prefix:String) -> Self? {
     if hasPrefix(prefix) {
       let index = self.index(startIndex, offsetBy: prefix.count)
-      return substring(from: index)
+      return self[index...] as? Self
     }
 
     return nil
